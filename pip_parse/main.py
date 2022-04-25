@@ -53,6 +53,9 @@ def parse(output: str, version_filter: str):
         else:
             update = get_numeric_version(VERSION_PATCH)
 
+        print(get_numeric_version(version_filter))
+        print(update)
+
         if get_numeric_version(version_filter) >= update:
             new_lines.append(line)
 

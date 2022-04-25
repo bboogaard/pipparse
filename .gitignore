@@ -3,3 +3,4 @@
 /dist/*
 /pip_parse.egg-info/*
 *.pyc
+venv/*
