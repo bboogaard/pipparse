@@ -12,5 +12,4 @@ setup(name='pip_parse',
       install_requires=[
           'semantic_version==2.9.0'
       ],
-      scripts=['bin/pipparse'],
       zip_safe=False)

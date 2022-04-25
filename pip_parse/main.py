@@ -57,3 +57,11 @@ def parse(output: str, version_filter: str):
             new_lines.append(line)
 
     return '\n'.join(new_lines)
+
+
+def run():
+    try:
+        version_filter = sys.argv[1]
+        print(parse(check(), version_filter))
+    except IndexError:
+        print("Please parse version filter as positional argument")
