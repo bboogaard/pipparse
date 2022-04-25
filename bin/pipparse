@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 import sys
 
 from pip_parse.main import check, parse
