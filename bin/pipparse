@@ -1,12 +1,12 @@
 #!/bin/sh
 import sys
 
-from pip_parse.main import check, parse
+from pip_parse.main import check_outdated
 
 
 if __name__ == '__main__':
     try:
         version_filter = sys.argv[1]
-        print(parse(check(), version_filter))
+        check_outdated(version_filter)
     except (IndexError):
         print("Please parse version filter as positional argument")

@@ -22,7 +22,7 @@ def check():
     return subprocess.check_output([sys.executable, "-m", "pip", "list", "--outdated"]).decode()
 
 
-def parse(output: str, version_filter: str):
+def parse(output: str, version_filter: str) -> str:
 
     def parse_columns(ln):
         ln = ln.lstrip()
@@ -37,6 +37,7 @@ def parse(output: str, version_filter: str):
 
     lines = list(filter(lambda l: l.strip() != '', output.split('\n')))
     new_lines = []
+
     for line in lines:
         columns = parse_columns(line)
         try:
@@ -53,10 +54,11 @@ def parse(output: str, version_filter: str):
         else:
             update = get_numeric_version(VERSION_PATCH)
 
-        print(get_numeric_version(version_filter))
-        print(update)
-
         if get_numeric_version(version_filter) >= update:
             new_lines.append(line)
 
     return '\n'.join(new_lines)
+
+
+def check_outdated(version_filter: str):
+    print(parse(check(), version_filter))
